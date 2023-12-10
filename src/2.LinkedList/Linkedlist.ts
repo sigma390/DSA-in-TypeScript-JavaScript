@@ -11,8 +11,8 @@ class Nodee{
 
 
 class LinkedListt{
-    head: Nodee | null; // Specify that head can be null or a Nodee
-    tail: Nodee ; // Specify that tail can be null or a Nodee
+    head: Nodee | null ; // Specify that head can be null or a Nodee
+    tail: Nodee | null; // Specify that tail can be null or a Nodee
     length: number;
     constructor(val:number){
         
@@ -31,17 +31,45 @@ class LinkedListt{
             
         }
         else{
-            this.tail.next = newNode;
+            this.tail!.next = newNode;
             this.tail = newNode;
         }
         this.length++;
         return  this;
 
     }
+    //===============> POP METHOD <===============
+    pop(){
+        //no item
+        if (!this.head) {
+            return undefined;
+            
+        }
+        //for more items
+        let temp:Nodee|null = this.head;
+        let pre:Nodee|null = this.head;
+        //iterate 
+        while (temp.next) {
+            pre = temp;
+            temp = temp.next;
+        }
+        this.tail = pre;
+        this.tail!.next  = null;
+        this.length--;
+        //for single item
+        if (this.length=== 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return temp;
+    }
+
 
 }
 
 let myLL = new LinkedListt(45);
 //push
 myLL.push(46);
+console.log(myLL);
+myLL.pop()
 console.log(myLL);
