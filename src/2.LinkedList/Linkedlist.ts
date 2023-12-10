@@ -12,7 +12,7 @@ class Nodee{
 
 class LinkedListt{
     head: Nodee | null; // Specify that head can be null or a Nodee
-    tail: Nodee | null; // Specify that tail can be null or a Nodee
+    tail: Nodee ; // Specify that tail can be null or a Nodee
     length: number;
     constructor(val:number){
         
@@ -21,7 +21,27 @@ class LinkedListt{
         this.tail = this.head;
         this.length = 1;
     }
+    //============>   PUSH METHOD  <=================
+
+    push(value:number){
+        const newNode = new Nodee(value);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+            
+        }
+        else{
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        this.length++;
+        return  this;
+
+    }
+
 }
 
 let myLL = new LinkedListt(45);
+//push
+myLL.push(46);
 console.log(myLL);
