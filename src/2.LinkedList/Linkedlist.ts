@@ -92,6 +92,18 @@ class LinkedListt{
         }
         return temp;
     }
+    //Get method
+    get(index:number){
+        if (index>=this.length|| index<0) {
+            return undefined;
+        }
+        let temp:any = this.head;
+        for (let i = 0; i < index; i++) {
+            temp = temp.next;
+            
+        }
+        return temp;
+    }
 
 
 }
@@ -112,3 +124,6 @@ console.log(myLL);
 //shift
 myLL.shift();
 console.log(myLL)
+
+//get
+console.log(myLL.get(2));

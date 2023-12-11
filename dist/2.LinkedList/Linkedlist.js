@@ -78,6 +78,17 @@ class LinkedListt {
         }
         return temp;
     }
+    //Get method
+    get(index) {
+        if (index >= this.length || index < 0) {
+            return undefined;
+        }
+        let temp = this.head;
+        for (let i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
 }
 let myLL = new LinkedListt(45);
 //push
@@ -94,3 +105,5 @@ console.log(myLL);
 //shift
 myLL.shift();
 console.log(myLL);
+//get
+console.log(myLL.get(2));
