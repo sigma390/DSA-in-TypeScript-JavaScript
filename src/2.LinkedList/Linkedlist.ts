@@ -63,6 +63,21 @@ class LinkedListt{
         }
         return temp;
     }
+    //unshift
+    unshift(value:number){
+        const newNode = new Nodee(value);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+            
+        }
+        else{
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    }
 
 
 }
@@ -70,6 +85,11 @@ class LinkedListt{
 let myLL = new LinkedListt(45);
 //push
 myLL.push(46);
+myLL.push(47);
+myLL.push(48);
 console.log(myLL);
+//pop
 myLL.pop()
 console.log(myLL);
+//unshift
+myLL.unshift(66);
