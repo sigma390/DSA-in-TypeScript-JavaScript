@@ -64,6 +64,20 @@ class LinkedListt {
         this.length++;
         return this;
     }
+    //Shift remove 1st node
+    shift() {
+        if (!this.head) {
+            return undefined;
+        }
+        let temp = this.head;
+        this.head = this.head.next;
+        temp.next = null;
+        this.length--;
+        if (this.length == 0) {
+            this.tail = null;
+        }
+        return temp;
+    }
 }
 let myLL = new LinkedListt(45);
 //push
@@ -76,4 +90,7 @@ myLL.pop();
 console.log(myLL);
 //unshift
 myLL.unshift(66);
-console.log(myLL)
+console.log(myLL);
+//shift
+myLL.shift();
+console.log(myLL);
