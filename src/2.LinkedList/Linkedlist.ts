@@ -105,6 +105,16 @@ class LinkedListt{
         return temp;
     }
 
+    //set method
+    set(index:number,value:number):boolean{
+        let temp = this.get(index);
+        if (temp) {
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
+
 
 }
 
@@ -127,3 +137,6 @@ console.log(myLL)
 
 //get
 console.log(myLL.get(2));
+//set 
+myLL.set(2,777);
+console.log(myLL);
