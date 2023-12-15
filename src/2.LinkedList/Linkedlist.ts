@@ -9,7 +9,6 @@ class Nodee{
     
 }
 
-
 class LinkedListt{
     head: Nodee | null ; // Specify that head can be null or a Nodee
     tail: Nodee | null; // Specify that tail can be null or a Nodee
@@ -154,6 +153,21 @@ class LinkedListt{
         return temp
     }
 
+    reverse(){
+        let temp: any = this.head;
+        this.head = this.tail;
+        this.tail = temp;
+        let next = temp.next;
+        let prev = null;
+        for (let index = 0; index < this.length; index++) {
+            next = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = next;
+            
+        }
+        return this;
+    }
 }
 
 let myLL = new LinkedListt(45);
@@ -185,4 +199,7 @@ console.log(myLL)
 
 //remove
 myLL.remove(1);
+console.log(myLL);
+//reverse
+myLL.reverse();
 console.log(myLL);

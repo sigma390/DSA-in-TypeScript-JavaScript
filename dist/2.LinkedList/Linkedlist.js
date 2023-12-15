@@ -134,6 +134,20 @@ class LinkedListt {
         this.length--;
         return temp;
     }
+    reverse() {
+        let temp = this.head;
+        this.head = this.tail;
+        this.tail = temp;
+        let next = temp.next;
+        let prev = null;
+        for (let index = 0; index < this.length; index++) {
+            next = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = next;
+        }
+        return this;
+    }
 }
 let myLL = new LinkedListt(45);
 //push
@@ -160,4 +174,7 @@ myLL.insert(1, 78);
 console.log(myLL);
 //remove
 myLL.remove(1);
+console.log(myLL);
+//reverse
+myLL.reverse();
 console.log(myLL);
