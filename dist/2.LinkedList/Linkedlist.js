@@ -50,7 +50,7 @@ class LinkedListt {
         }
         return temp;
     }
-    //unshift
+    //=========> unshift <================
     unshift(value) {
         const newNode = new Nodee(value);
         if (!this.head) {
@@ -64,7 +64,7 @@ class LinkedListt {
         this.length++;
         return this;
     }
-    //Shift remove 1st node
+    //=================> Shift remove 1st node <=====================
     shift() {
         if (!this.head) {
             return undefined;
@@ -78,7 +78,7 @@ class LinkedListt {
         }
         return temp;
     }
-    //Get method
+    //===================> Get method <=====================
     get(index) {
         if (index >= this.length || index < 0) {
             return undefined;
@@ -89,7 +89,7 @@ class LinkedListt {
         }
         return temp;
     }
-    //set method
+    //===================> set method <=======================
     set(index, value) {
         let temp = this.get(index);
         if (temp) {
@@ -98,7 +98,7 @@ class LinkedListt {
         }
         return false;
     }
-    //insert method
+    //===================> insert method <====================
     insert(index, val) {
         if (index == 0) {
             return this.unshift(val);
@@ -116,7 +116,7 @@ class LinkedListt {
         this.length++;
         return true;
     }
-    //Remove method
+    //==================> Remove method <===================
     remove(index) {
         if (index < 0 || index > this.length) {
             return false;
@@ -134,6 +134,7 @@ class LinkedListt {
         this.length--;
         return temp;
     }
+    //=====================> Reverse <======================
     reverse() {
         let temp = this.head;
         this.head = this.tail;
