@@ -98,6 +98,24 @@ class LinkedListt {
         }
         return false;
     }
+    //insert method
+    insert(index, val) {
+        if (index == 0) {
+            return this.unshift(val);
+        }
+        if (index === this.length) {
+            this.push(val);
+        }
+        if (index < 0 || index > this.length) {
+            return false;
+        }
+        const nN = new Nodee(val);
+        const temp = this.get(index - 1);
+        nN.next = temp.next;
+        temp.next = nN;
+        this.length++;
+        return true;
+    }
 }
 let myLL = new LinkedListt(45);
 //push
@@ -119,3 +137,6 @@ console.log(myLL.get(2));
 //set 
 myLL.set(2, 777);
 console.log(myLL);
+// //insert operation
+// myLL.insert(1,78);
+// console.log(myLL)
