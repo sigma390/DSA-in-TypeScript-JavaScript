@@ -134,7 +134,25 @@ class LinkedListt{
         this.length++;
         return true;
     }
+    //Remove method
+    remove(index:number){
+        if (index<0||index>this.length) {
+            return false;
+        }
+        if (index===0) {
+            return this.shift();
+        }
+        if (index=== this.length-1) {
+            return this.pop();
+        }
 
+        const before = this.get(index-1);
+        const temp = before.next;
+        before.next = temp.next;
+        temp.next = null;
+        this.length--;
+        return temp
+    }
 
 }
 
@@ -161,6 +179,10 @@ console.log(myLL.get(2));
 myLL.set(2,777);
 console.log(myLL);
 
-// //insert operation
-// myLL.insert(1,78);
-// console.log(myLL)
+//insert operation
+myLL.insert(1,78);
+console.log(myLL)
+
+//remove
+myLL.remove(1);
+console.log(myLL);
